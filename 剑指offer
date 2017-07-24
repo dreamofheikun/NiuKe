@@ -1,4 +1,25 @@
-/***********************************************************
+/**
+*  struct ListNode {
+*        int val;
+*        struct ListNode *next;
+*        ListNode(int x) :
+*              val(x), next(NULL) {
+*        }
+*  };
+*/
+class Solution {
+public:
+    vector<int> printListFromTailToHead(ListNode* head) {
+        vector<int> value;
+        while(head!=NULL)
+            {
+            value.push_back(head->val);
+            head=head->next;
+        }
+        reverse(value.begin(),value.end());
+        return value;
+    }
+};/***********************************************************
            牛客网上的剑指offer第一题
 题目：  
 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
@@ -67,3 +88,39 @@ public:
 笔记：刚开始以为参数length就是字符串本身长度，原来是字符串的最大长度限制
      在第二个while循环那里，len>i要想明白。
 /******************************************************/
+
+		牛客网上的剑指offer第三题
+题目描述
+输入一个链表，从尾到头打印链表每个节点的值。
+/*******************************************************/
+/**
+*  struct ListNode {
+*        int val;
+*        struct ListNode *next;
+*        ListNode(int x) :
+*              val(x), next(NULL) {
+*        }
+*  };
+*/
+class Solution {
+public:
+    vector<int> printListFromTailToHead(ListNode* head) {
+        vector<int> value;
+        while(head!=NULL)
+            {
+            value.push_back(head->val);
+            head=head->next;
+        }
+        reverse(value.begin(),value.end());
+        return value;
+    }
+};
+/*****************************************************/
+笔记：对vector的使用还是不够熟练，C++中还有自带的转置函数reverse()，即对这个函数不熟悉，对他的传参也不是很熟悉。
+template<class BidirectionalIterator>
+   void reverse(
+      BidirectionalIterator _First, 
+      BidirectionalIterator _Last
+   );
+   reverse(value.begin(),value.end());在begin和end后面的()一定不要忘了。
+**************************************************************************************/   
