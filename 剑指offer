@@ -1,0 +1,69 @@
+/***********************************************************
+           牛客网上的剑指offer第一题
+题目：  
+在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+class Solution {
+public:
+    bool Find(int target, vector<vector<int> > array) {
+        int row=array.size();
+        int col=array[0].size();
+        int i=row-1;
+        int j=0;
+        while(i>=0&&j<col)
+            {
+            if(array[i][j]<target)
+                j++;
+            else if(array[i][j]>target)
+                i--;
+            else
+                return true;
+        }
+        return false;
+    }
+};
+********************************************************/
+笔记：vector<vector<int> >定义的差不多就是一个二维数组，
+  row=array.size();计算的是这个数组的行数
+  int col=array[0].size();
+/******************************************************************/
+        牛客网上的剑指offer第二题
+题目：  
+    请实现一个函数，将一个字符串中的空格替换成“%20”。
+    例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+           
+/*********************************************************************/
+           
+class Solution {
+public:
+	void replaceSpace(char *str,int length) {
+		
+        int i=0;//记录字符串长度
+        int j=0;//空格数量
+        while(str[i]!='\0')
+            {
+            if(str[i]==' ')
+               j++; 
+            i++;
+        }
+        int len=i+j*2;//把空格替换后字符串的长度
+        if(len>length)
+            return;
+        while(i>=0&&len>i)
+            {
+            if(str[i]==' '){
+                str[len--]='0';
+                str[len--]='2';
+                str[len--]='%';
+            }
+            else
+            	str[len--]=str[i];
+            i--;
+        }
+	}
+};
+/******************************************************/
+笔记：刚开始以为参数length就是字符串本身长度，原来是字符串的最大长度限制
+     在第二个while循环那里，len>i要想明白。
+/******************************************************/
