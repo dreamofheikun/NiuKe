@@ -30,3 +30,5 @@ private:
          return root;
     }
 };
+/***********************************************/
+笔记：对递归中参数‘startPre+i-startIn’，‘i-startIn+startPre+1’不是很理解
